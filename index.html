@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatoração Distribuída NPP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fatoração Distribuída do Número NPP</h1>
+            <p>Sistema distribuído para encontrar divisores de números grandes</p>
+        </header>
+
+        <main>
+            <section class="status-section">
+                <h2>Status Atual</h2>
+                <div class="status-grid">
+                    <div class="status-item">
+                        <h3>Maior Primo Testado</h3>
+                        <p id="largest-prime">{{ largest_prime }}</p>
+                    </div>
+                    <div class="status-item">
+                        <h3>Dispositivos Ativos</h3>
+                        <p id="active-devices">0</p>
+                    </div>
+                    <div class="status-item">
+                        <h3>Divisores Encontrados</h3>
+                        <p id="divisors-found">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="work-section">
+                <h2>Participar da Fatoração</h2>
+                <button id="start-work" class="btn-primary">Iniciar Trabalho</button>
+                <button id="stop-work" class="btn-secondary" disabled>Parar Trabalho</button>
+                <div id="work-status" class="work-status">
+                    <p>Clique em "Iniciar Trabalho" para começar a procurar divisores</p>
+                </div>
+            </section>
+
+            <section class="progress-section">
+                <h2>Progresso</h2>
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+                <p id="progress-text">0% concluído</p>
+            </section>
+
+            <section class="results-section">
+                <h2>Resultados</h2>
+                <div id="results-list" class="results-list">
+                    <p>Nenhum divisor encontrado ainda.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
